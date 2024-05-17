@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Project Details: {{ project.project_name }}</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Entry Information</h2>
+                <ul class="list-group text-blue">
+                    {% for entry in entry_info %}
+                    <li class="list-group-item"><strong>Approx Number of Screens:</strong> {{ entry.approx_number_of_screens }}</li>
+                    <li class="list-group-item"><strong>Data Entry:</strong> {{ entry.data_entry }}</li>
+                    <li class="list-group-item"><strong>Data Entry Access:</strong> {{ entry.data_entry_access }}</li>
+                    <li class="list-group-item"><strong>Entry Screen Additional Info:</strong> {{ entry.entry_screen_additional_info }}</li>
+                    <li class="list-group-item"><strong>Entry Screen Attachment:</strong> <a href="{{ entry.entry_screen_attachment.url }}">Download Attachment</a></li>
+                    <!-- Display other entry information -->
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Approval Information</h2>
+                <ul class="list-group">
+                    {% for approval in approval1 %}
+                    <li class="list-group-item"><strong>Data Approval:</strong> {{ approval.data_approval }}</li>
+                    <li class="list-group-item"><strong>Approval Additional Info:</strong> {{ approval.approval_additional_info }}</li>
+                    <li class="list-group-item"><strong>Entry Approval Screen:</strong> <a href="{{ approval.entry_approval_screen.url }}">Download Approval Screen</a></li>
+                    <li class="list-group-item"><strong>Additional Approval Data:</strong> {{ approval.additional_approval_data }}</li>
+                    <li class="list-group-item"><strong>Additional Approval Screen:</strong> <a href="{{ approval.additional_approval_screen.url }}">Download Approval Screen</a></li>
+                    
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Approval2 Information</h2>
+                <ul class="list-group">
+                    {% for approval in approval2 %}
+                    <li class="list-group-item"><strong>Approval2 Needed:</strong> {{ approval.approval2_needed }}</li>
+                    <li class="list-group-item"><strong>Approval2 Data:</strong> {{ approval.approval2_data }}</li>
+                    <li class="list-group-item"><strong>Approval2 Screen:</strong> <a href="{{ approval.approval2_screen.url }}">Download Approval2 Screen</a></li>
+                  
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+    <h2>Reports Information</h2>
+    <ul class="list-group">
+        {% for report in reports %}
+        <li class="list-group-item"><strong>Reports Needed:</strong> {{ report.reports_needed }}</li>
+        <li class="list-group-item"><strong>Reports Access:</strong> {{ report.reports_access }}</li>
+        <li class="list-group-item"><strong>Reports Page Look:</strong> <a href="{{ report.reports_page_look.url }}">Download Reports Page</a></li>
+        <li class="list-group-item"><strong>Reports Additional Info:</strong> {{ report.reports_additional_info }}</li>
+       
+        {% endfor %}
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Extra Questions</h2>
+                <ul class="list-group">
+                    {% for question in extra_questions %}
+                    <li class="list-group-item"><strong>Automails Needed:</strong> {{ question.automails_needed }}</li>
+                    <li class="list-group-item"><strong>Excel Generation Needed:</strong> {{ question.excel_generation_needed }}</li>
+                    <li class="list-group-item"><strong>Text File Needed:</strong> {{ question.text_file_needed }}</li>
+                    <li class="list-group-item"><strong>Additional Features:</strong> {{ question.additional_features }}</li>
+                 
+                    {% endfor %}
+                </ul>
+            </div>
+            
+        </div>
+     
+
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

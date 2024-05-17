@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Information Form</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .one {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <form id="projectForm" method="post" enctype="multipart/form-data" action="{% url 'index' %}">{% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Information</h5>
+                       
+                          
+                            <div class="form-group">
+                                <label for="project_name">Project Name:</label>
+                                <input type="text" class="form-control" id="project_name" name="project_name" placeholder="Project Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employee_id">Employee Id:</label>
+                                <input type="text" class="form-control" id="employee_id" name="employee_id" placeholder="Employee ID">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="integration_requirements">Integration Requirements for Medha Online Services:</label>
+                                <textarea class="form-control" id="integration_requirements" name="integration_requirements" rows="4" placeholder="Integration Requirements for Medha Online Services"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="benefits">Benefits of This Project in Daily Operations:</label>
+                                <textarea class="form-control" id="benefits" name="benefits" rows="4" placeholder="Benefits of This Project in Daily Operations"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="navigation_path">Navigation Path for Accessing the Project:</label>
+                                <textarea class="form-control" id="navigation_path" name="navigation_path" rows="4" placeholder="Navigation Path for Accessing the Project"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="access_permissions">Access Permissions for Employees:</label>
+                                <textarea class="form-control" id="access_permissions" name="access_permissions" rows="4" placeholder="Access Permissions for Employees"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="similar_modules">Existence of Similar Modules:</label>
+                                <textarea class="form-control" id="similar_modules" name="similar_modules" rows="4" placeholder="Existence of Similar Modules"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additional_info">Additional Information:</label>
+                                <textarea class="form-control" id="additional_info" name="additional_info" rows="4" placeholder="Additional Information"></textarea>
+                            </div>
+
+                        
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Entry Information</h5>
+                       
+                            
+                            <div class="form-group">
+                                <label for="approx_number_of_screens">Approximate Number of Screens:</label>
+                                <input type="text" class="form-control" id="approx_number_of_screens" name="approx_number_of_screens" placeholder="Approximate Number of Screens">
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="entry_screen" name="entry_screen">
+                                <label class="form-check-label" for="entry_screen">Is there any entry screen to enter the data?</label>
+                            </div>
+
+                            <div id="entry_screen_fields">
+                                <div class="form-group">
+                                    <label for="data_entry">What information is required to be inputted through this page?</label>
+                                    <textarea class="form-control" id="data_entry" name="data_entry" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="data_entry_access">Which users are authorized to enter this data?</label>
+                                    <textarea class="form-control" id="data_entry_access" name="data_entry_access" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="entry_screen_attachment">Please provide an Excel/Paint file showing the layout of the entry screen</label>
+                                    <input type="file" class="form-control-file" id="entry_screen_attachment" name="entry_screen_attachment">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="entry_screen_additional_info">Is there any extra information you'd like to provide about this screen?</label>
+                                    <textarea class="form-control" id="entry_screen_additional_info" name="entry_screen_additional_info" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+                            </div>
+
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Approval 1 Information</h5>
+                         
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="approval_needed" name="approval_needed">
+                                <label class="form-check-label" for="approval_needed">Is there any approval needed for the entered data? (Tick if yes)</label>
+                            </div>
+
+                            <div id="approval_fields">
+                                <div class="form-group">
+                                    <label for="data_approval">Who will approve the entered data?</label>
+                                    <textarea class="form-control" id="data_approval" name="data_approval" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="entry_approval_screen">Please provide an Excel/Paint file illustrating the layout of the approval screen.</label>
+                                    <input type="file" class="form-control-file" id="entry_approval_screen" name="entry_approval_screen">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="approval_additional_info">Is there any extra information you'd like to provide regarding the approval screen?</label>
+                                    <textarea class="form-control" id="approval_additional_info" name="approval_additional_info" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="additional_approval_needed" name="additional_approval_needed">
+                                    <label class="form-check-label" for="additional_approval_needed">Is there any more approval needed? (Tick if yes)</label>
+                                </div>
+
+                                <div id="additional_approval_fields">
+                                    <div class="form-group">
+                                        <label for="additional_approval_data">Who will approve the entered data?</label>
+                                        <textarea class="form-control" id="additional_approval_data" name="additional_approval_data" rows="4" placeholder="Enter details"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="additional_approval_screen">Please upload an attachment showing how the approval screen will look like:</label>
+                                        <input type="file" class="form-control-file" id="additional_approval_screen" name="additional_approval_screen">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="additional_approval_info">Any additional data you want to give about the approval screen:</label>
+                                        <textarea class="form-control" id="additional_approval_info" name="additional_approval_info" rows="4" placeholder="Enter details"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Approval 2 Information</h5>
+                         
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="approval2_needed" name="approval2_needed">
+                                <label class="form-check-label" for="approval2_needed">Is there any more approval needed after the previous screen? (Tick if yes)</label>
+                            </div>
+
+                            <div id="approval2_fields">
+                                <div class="form-group">
+                                    <label for="approval2_data">Who will approve the entered data?</label>
+                                    <textarea class="form-control" id="approval2_data" name="approval2_data" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="approval2_screen">Please upload an attachment showing how the approval screen will look like:</label>
+                                    <input type="file" class="form-control-file" id="approval2_screen" name="approval2_screen">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="approval2_additional_info">Any additional data you want to give about the approval screen:</label>
+                                    <textarea class="form-control" id="approval2_additional_info" name="approval2_additional_info" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+                            </div>
+
+                            
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Reports Information</h5>
+                       
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="reports_needed" name="reports_needed">
+                                <label class="form-check-label" for="reports_needed">Do you need a reports page to see the entry data? (Tick if yes)</label>
+                            </div>
+
+                            <div id="reports_fields">
+                                <div class="form-group">
+                                    <label for="reports_access">Who has access to the reports page?</label>
+                                    <textarea class="form-control" id="reports_access" name="reports_access" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reports_page_look">How should the report page look like? Upload any attachments:</label>
+                                    <input type="file" class="form-control-file" id="reports_page_look" name="reports_page_look">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reports_additional_info">Additional information about this screen:</label>
+                                    <textarea class="form-control" id="reports_additional_info" name="reports_additional_info" rows="4" placeholder="Enter details"></textarea>
+                                </div>
+                            </div>
+
+                            
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Extra Questions</h5>
+                         
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="automails_needed" name="automails_needed">
+                                <label class="form-check-label" for="automails_needed">Do you need automails at some stages? (Tick if yes)</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="excel_generation_needed" name="excel_generation_needed">
+                                <label class="form-check-label" for="excel_generation_needed">Do you need any Excel generations at any stage? (Tick if yes)</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="text_file_needed" name="text_file_needed">
+                                <label class="form-check-label" for="text_file_needed">Do you want to generate a text file for SAP upload or anything else? (Tick if yes)</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="additional_features">Do you want any additional features i.e automails, PDF generation, Excel generations, MOS to SAP link etc? (If yes, please mention in details)</label>
+                                <textarea class="form-control" id="additional_features" name="additional_features" rows="4" placeholder="Enter details"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" href="{% url 'reports'%}" class="btn btn-primary">Submit</button>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div></form>
+       
+    </div>
+
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
